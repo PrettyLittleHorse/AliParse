@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
 
 class AliParser {
 
-    static String dataFromAliParser;
+    static String dataFromAliParser = "";
 
     protected AliParser(String urlAli) throws IOException {
 
@@ -53,7 +53,7 @@ class AliParser {
             stringJoin.add("New minimal price");
             stringJoin.add(minPriceMather.group(1));
             stringJoin.add("Original minimal price");
-            stringJoin.add(originalMinPriceMatcher.group(1));
+            stringJoin.add(originalMinPriceMatcher.group(1) + "\n");
         }
         dataFromAliParser = String.valueOf(stringJoin);
 
