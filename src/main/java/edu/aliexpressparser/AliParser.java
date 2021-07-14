@@ -1,7 +1,6 @@
 package edu.aliexpressparser;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
@@ -11,7 +10,7 @@ import java.util.regex.Pattern;
 
 class AliParser {
 
-    static String dataFromAliParser = "";
+    static String aliParserClassUutputString = "";
 
     protected AliParser(String urlAli) throws Exception {
 
@@ -50,13 +49,9 @@ class AliParser {
             stringJoin.add("URL").add(productUrlMatcher.group(1));
             stringJoin.add("New minimal price").add(minPriceMather.group(1));
             stringJoin.add("Original minimal price").add(originalMinPriceMatcher.group(1));
-            dataFromAliParser = String.valueOf(stringJoin);
+            aliParserClassUutputString = String.valueOf(stringJoin);
 
         }
-        CSVFileWriter csvFileWriter = new CSVFileWriter();
-        String[] outputForCSVArray = dataFromAliParser.split("\r\n");
-        csvFileWriter.createFile("AliParserOutput.csv", outputForCSVArray);
-
 
         inputStreamReader.close();
         bufferedReader.close();
