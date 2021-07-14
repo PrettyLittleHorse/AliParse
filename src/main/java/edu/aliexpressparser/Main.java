@@ -10,6 +10,7 @@ public class Main {
     }
 
     private static void parseNumberStrings(int numberOfStrings) {
+
         int offset = 0;
         CSVFileWriter csvFileWriter = new CSVFileWriter();
         try {

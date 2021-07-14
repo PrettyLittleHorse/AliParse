@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
 
 class AliParser {
 
-    static String aliParserClassOutputString = "";
+    static String aliParserClassUutputString = "";
 
     protected AliParser(String urlAli) throws Exception {
 
@@ -49,7 +49,7 @@ class AliParser {
             stringJoin.add("URL").add(productUrlMatcher.group(1));
             stringJoin.add("New minimal price").add(minPriceMather.group(1));
             stringJoin.add("Original minimal price").add(originalMinPriceMatcher.group(1));
-            aliParserClassOutputString = String.valueOf(stringJoin);
+            aliParserClassUutputString = String.valueOf(stringJoin);
 
         }
 
