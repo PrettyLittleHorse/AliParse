@@ -13,7 +13,7 @@ class AliParser {
 
     static String dataFromAliParser = "";
 
-    protected AliParser(String urlAli) throws IOException {
+    protected AliParser(String urlAli) throws Exception {
 
         URL url = new URL(urlAli);
         URLConnection urlConnection = url.openConnection();
@@ -43,19 +43,20 @@ class AliParser {
 
         int i = 0;
 
-        while (titleMather.find(i) && productUrlMatcher.find(i)&& originalMinPriceMatcher.find(i)&& minPriceMather.find(i)) {
+        if (titleMather.find(i) && productUrlMatcher.find(i)&& originalMinPriceMatcher.find(i)&& minPriceMather.find(i)) {
             i = titleMather.start(1);
 
-            stringJoin.add("Title");
-            stringJoin.add(titleMather.group(1));
-            stringJoin.add("URL");
-            stringJoin.add(productUrlMatcher.group(1));
-            stringJoin.add("New minimal price");
-            stringJoin.add(minPriceMather.group(1));
-            stringJoin.add("Original minimal price");
-            stringJoin.add(originalMinPriceMatcher.group(1) + "\n");
+            stringJoin.add("Title").add(titleMather.group(1));
+            stringJoin.add("URL").add(productUrlMatcher.group(1));
+            stringJoin.add("New minimal price").add(minPriceMather.group(1));
+            stringJoin.add("Original minimal price").add(originalMinPriceMatcher.group(1));
+            dataFromAliParser = String.valueOf(stringJoin);
+
         }
-        dataFromAliParser = String.valueOf(stringJoin);
+        CSVFileWriter csvFileWriter = new CSVFileWriter();
+        String[] outputForCSVArray = dataFromAliParser.split("\r\n");
+        csvFileWriter.createFile("AliParserOutput.csv", outputForCSVArray);
+
 
         inputStreamReader.close();
         bufferedReader.close();
