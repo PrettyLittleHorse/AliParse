@@ -6,3 +6,4 @@ Frameworks are prohibited (including Selenium).
 Supporting libraries are allowed.
 Csv format, the more fields the better.
 The project should be launched without any additional actions (downloaded, launched, got the result).
+Building the project through maven.
