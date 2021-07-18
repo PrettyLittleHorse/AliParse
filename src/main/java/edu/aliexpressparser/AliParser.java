@@ -15,9 +15,7 @@ class AliParser {
     private final URL url;
 
     public AliParser(String urlAli) throws Exception {
-
         url = new URL(urlAli);
-
     }
 
     public String parseUrl () throws IOException {
@@ -49,14 +47,11 @@ class AliParser {
         int i = 0;
 
         if (titleMather.find(i) && productUrlMatcher.find(i)&& originalMinPriceMatcher.find(i)&& minPriceMather.find(i)) {
-            i = titleMather.start(1);
-
             stringJoin.add("Title").add(titleMather.group(1));
             stringJoin.add("URL").add(productUrlMatcher.group(1));
             stringJoin.add("New minimal price").add(minPriceMather.group(1));
             stringJoin.add("Original minimal price").add(originalMinPriceMatcher.group(1));
             aliParserClassOutputString = String.valueOf(stringJoin);
-
         }
 
         inputStreamReader.close();
