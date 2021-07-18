@@ -10,6 +10,5 @@ Building the project through maven.
 
 ### Instructions:  
 The executable file is located in the \target\ folder.  
-Double click on the file and wait until it becomes 25 KB.  
 Open AliParserOitput.csv in Exel.  
-Attention: each launch adds 100 new lines.  
+Attention: each launch adds new lines.  
