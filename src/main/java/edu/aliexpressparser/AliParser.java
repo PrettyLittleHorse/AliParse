@@ -1,6 +1,7 @@
 package edu.aliexpressparser;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
@@ -10,11 +11,16 @@ import java.util.regex.Pattern;
 
 class AliParser {
 
-    static String aliParserClassUutputString = "";
+    private String aliParserClassOutputString = "";
+    private final URL url;
 
-    protected AliParser(String urlAli) throws Exception {
+    public AliParser(String urlAli) throws Exception {
 
-        URL url = new URL(urlAli);
+        url = new URL(urlAli);
+
+    }
+
+    public String parseUrl () throws IOException {
         URLConnection urlConnection = url.openConnection();
 
         InputStreamReader inputStreamReader = new InputStreamReader(urlConnection.getInputStream());
@@ -49,11 +55,12 @@ class AliParser {
             stringJoin.add("URL").add(productUrlMatcher.group(1));
             stringJoin.add("New minimal price").add(minPriceMather.group(1));
             stringJoin.add("Original minimal price").add(originalMinPriceMatcher.group(1));
-            aliParserClassUutputString = String.valueOf(stringJoin);
+            aliParserClassOutputString = String.valueOf(stringJoin);
 
         }
 
         inputStreamReader.close();
         bufferedReader.close();
+        return aliParserClassOutputString;
     }
 }
