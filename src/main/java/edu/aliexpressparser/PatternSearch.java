@@ -6,15 +6,15 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class PatternSearch {
-    private final List<String> resultList;
-    private final List<String> outputParsedList = new ArrayList<>();
+    private final List<String> results;
+    private final List<String> outputs = new ArrayList<>();
 
-    public PatternSearch(List<String> resultList) {
-        this.resultList = resultList;
+    public PatternSearch(List<String> results) {
+        this.results = results;
     }
 
-    protected List<String> getOutputList() {
-        String str = String.valueOf(resultList);
+    protected List<String> getResults() {
+        String str = String.valueOf(results);
 
         Pattern productTitle = Pattern.compile("\"productTitle\":\"([\\s\\S]+?)\",");
         Matcher titleMather = productTitle.matcher(str);
@@ -29,12 +29,16 @@ public class PatternSearch {
         Matcher minPriceMather = minPrice.matcher(str);
 
         while (titleMather.find() && productUrlMatcher.find() && originalMinPriceMatcher.find() && minPriceMather.find()) {
-            outputParsedList.add("Title:,\"" + titleMather.group(1)
-                    + "\",URL:,\"" + productUrlMatcher.group(1)
-                    + "\",New minimal price:,\"" + minPriceMather.group(1)
-                    + "\",Original minimal price:,\"" + originalMinPriceMatcher.group(1)
-                    + "\"\n");
+            outputs.add("Title:");
+            outputs.add(",\"" + titleMather.group(1) + "\"");
+            outputs.add(",URL:");
+            outputs.add(",\"" + productUrlMatcher.group(1) + "\"");
+            outputs.add(",New minimal price:");
+            outputs.add(",\"" + minPriceMather.group(1) + "\"");
+            outputs.add(",Original minimal price:");
+            outputs.add(",\"" + originalMinPriceMatcher.group(1) + "\"");
+            outputs.add("\n");
         }
-        return outputParsedList;
+        return outputs;
     }
 }

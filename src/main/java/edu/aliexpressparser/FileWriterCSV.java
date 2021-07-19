@@ -6,18 +6,22 @@ import java.util.List;
 
 public class FileWriterCSV {
     private final String fileName;
-    private final List<String> resultList;
+    private final List<String> results;
 
-    public FileWriterCSV(String fileName, List<String> resultList) {
+    public FileWriterCSV(String fileName, List<String> results){
         this.fileName = fileName;
-        this.resultList = resultList;
+        this.results = results;
     }
 
-    protected void writeToFile(int stringLimit) throws IOException {
+    protected void write() throws IOException {
         FileWriter writer = new FileWriter(fileName, true);
-        for (int i = 0; i < stringLimit; i++) {
-            writer.append(resultList.get(i));
+        for (String str : results) {
+            writer.append(str);
         }
         writer.close();
     }
+
+
+
+
 }
