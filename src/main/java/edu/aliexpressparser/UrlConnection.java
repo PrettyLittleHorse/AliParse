@@ -5,14 +5,14 @@ import java.net.URL;
 import java.net.URLConnection;
 
 public class UrlConnection {
-    private final String url;
+    private final String urlString;
 
-    public UrlConnection(String url) {
-        this.url = url;
+    public UrlConnection(String urlString) {
+        this.urlString = urlString;
     }
 
     protected URLConnection Openurl() throws IOException {
-        URL url1 = new URL(url);
+        URL url1 = new URL(urlString);
         return url1.openConnection();
     }
 }
