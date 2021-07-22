@@ -23,7 +23,7 @@ public class Result {
     private Long code;
     @SerializedName("results")
     @Expose
-    private List<Product> results = null;
+    private List<Product> results;
     @SerializedName("finished")
     @Expose
     private Boolean finished;

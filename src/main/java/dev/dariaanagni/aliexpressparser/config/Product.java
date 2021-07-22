@@ -49,15 +49,15 @@ public class Product {
     public String toString() {
 
         return
-                "\""+minPrice + "\"," +
-                        "\""+ oriMinPrice + "\"," +
-                        "\""+ productTitle + "\"," +
-                        "\""+ productAverageStar + "\"," +
-                        "\""+ orders + "\"," +
-                        "\""+ productImage + "\"," +
-                        "\""+ productDetailUrl + "\"," +
-                        "\""+ productId + "\"," +
-                        "\""+ sellerId + "\",";
+                "\"" + minPrice + "\"," +
+                        "\"" + oriMinPrice + "\"," +
+                        "\"" + productTitle + "\"," +
+                        "\"" + productAverageStar + "\"," +
+                        "\"" + orders + "\"," +
+                        "\"" + productImage + "\"," +
+                        "\"" + productDetailUrl + "\"," +
+                        "\"" + productId + "\"," +
+                        "\"" + sellerId + "\",";
     }
 
     public static void saveInCSV(List<String> resultList) {
