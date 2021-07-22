@@ -21,7 +21,7 @@ public class MainAliParser {
 
         for (int i = 0; i < Constants.PAGE_NUMBER; i++) {
 
-            final String line = UrlConnection.sendRequest(i);
+            final String line = Request.sendRequest(i);
             final Result result = Result.cleanJson(line);
 
             if (result != null) {

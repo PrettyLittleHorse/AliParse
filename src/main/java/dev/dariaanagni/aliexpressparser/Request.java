@@ -7,10 +7,9 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
-
 import java.io.IOException;
 
-public class UrlConnection {
+public class Request {
     public static String sendRequest(int numberOfPage) throws IOException {
         HttpGet request = new HttpGet(
                 "https://gpsfront.aliexpress.com/getRecommendingResults.do?callback=jQuery18308863947305113146_1626186346841&widget_id=5547572&platform=pc&limit="
