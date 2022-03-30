@@ -1,6 +1,6 @@
 # AliParse
 Task:  
-Parse 100 items from this link https://flashdeals.aliexpress.com/en.htm? in 1 minute.  
+Parse 100 items from this link https://flashdeals.aliexpress.com/en.htm? in 1 minute.  (link is corrupted now)
 Writing a parser in Java version: 8 using OOP.  
 Frameworks are prohibited (including Selenium).  
 Supporting libraries are allowed.  
